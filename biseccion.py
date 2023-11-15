@@ -3,9 +3,9 @@ f = lambda x: mt.e**x - 3*(x)**2
 
 # parametros del ejercicio
 err_indx= 0.04
-intervalo= [0,1]
+intervalo= (0,1)
 number_iter= 6 
-def biseccion(intervalo, err, number_iter):
+def biseccion(f,intervalo, err, number_iter):
     a= intervalo[0]
     b= intervalo[1]
     err_a= 100.0
@@ -27,9 +27,10 @@ def biseccion(intervalo, err, number_iter):
     
     return (m_act,err_a, iterations)
 
-results= biseccion(intervalo, err_indx, number_iter)
+results= biseccion(f,intervalo, err_indx, number_iter)
 
 print("El punto aproximado es ", results[0], " con un margen de error de ", results[1], 'alcanzado en ', results[2], 'iteraciones')
-        
+if __name__== "Main":
+   pass
 
  
