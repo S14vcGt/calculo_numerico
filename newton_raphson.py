@@ -9,7 +9,7 @@ dfx = lambda x: -2*x*(m.e**(-x**2))-2
 
 x0 = 2 #SERIA 0.80, pero partiendo desde 2 parece obtener una mayor precision
 tolera = 0.001# seria 0.02 pero con esta se llega mas lejos 
-def newton_raphson(fx, dfx, x0= 2, tolera= 0.001):
+def newton_raphson(x0= 0.80, tolera= 0.02, fx=lambda x: (m.e**(-x**2))-2*x+1, dfx=lambda x: -2*x*(m.e**(-x**2))-2):
     # PROCEDIMIENTO
     tabla = []
     tramo = abs(2*tolera)
@@ -35,5 +35,10 @@ def salida_newton_raphson(tupla):
     print('raiz en: ', tupla[0])
     print('con error de: ',tupla[1])
 
-Z= newton_raphson(fx, dfx)
-salida_newton_raphson(Z)
+
+if __name__ == "__main__":
+    Z= newton_raphson()
+    salida_newton_raphson(Z)
+    
+    Y=newton_raphson(x0, tolera)
+    salida_newton_raphson(Y)
