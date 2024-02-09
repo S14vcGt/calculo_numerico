@@ -1,11 +1,6 @@
 import math as mt
-f = lambda x: mt.e**x - 3*(x)**2
 
-# parametros del ejercicio
-err_indx= 0.04
-intervalo= (0,1)
-number_iter= 6 
-def biseccion(f= lambda x: mt.e**x - 3*(x)**2,intervalo= (0,1), err=0.04, number_iter =6):
+def biseccion(f, intervalo, err, number_iter):
     a= intervalo[0]
     b= intervalo[1]
     err_a= 100.0
@@ -27,10 +22,13 @@ def biseccion(f= lambda x: mt.e**x - 3*(x)**2,intervalo= (0,1), err=0.04, number
     
     return (m_act,err_a, iterations)
 
-results= biseccion()
-
-print("El punto aproximado es ", results[0], " con un margen de error de ", results[1], 'alcanzado en ', results[2], 'iteraciones')
 if __name__== "__main__":
+  
+   f = lambda x: mt.e**x - 3*(x)**2
+
+   results= biseccion(f,(0,1),0.04,6)
+
+   print("El punto aproximado es ", results[0], " con un margen de error de ", results[1], 'alcanzado en ', results[2], 'iteraciones')
    try:
       if results[1]>0 :
          raise Exception

@@ -1,15 +1,8 @@
 # Método de Newton-Raphson
-# Ejemplo 1 (Burden ejemplo 1 p.51/pdf.61)
 import math as m
 import numpy as np
 
-# INGRESO
-fx  = lambda x: (m.e**(-x**2))-2*x+1
-dfx = lambda x: -2*x*(m.e**(-x**2))-2
-
-x0 = 2 #SERIA 0.80, pero partiendo desde 2 parece obtener una mayor precision
-tolera = 0.001# seria 0.02 pero con esta se llega mas lejos 
-def newton_raphson(x0= 0.80, tolera= 0.02, fx=lambda x: (m.e**(-x**2))-2*x+1, dfx=lambda x: -2*x*(m.e**(-x**2))-2):
+def newton_raphson(x0, tolera, fx, dfx):
     # PROCEDIMIENTO
     tabla = []
     tramo = abs(2*tolera)
@@ -37,8 +30,14 @@ def salida_newton_raphson(tupla):
 
 
 if __name__ == "__main__":
-    Z= newton_raphson()
-    salida_newton_raphson(Z)
     
-    Y=newton_raphson(x0, tolera)
+    dfx = lambda x: -2*x*(m.e**(-x**2))-2
+    fx  = lambda x: (m.e**(-x**2))-2*x+1
+   
+    Z= newton_raphson(0.80,0.02,fx,dfx)
+    salida_newton_raphson(Z)
+   #SERIA 0.80, pero partiendo desde 2 parece obtener una mayor precision
+# seria 0.02 pero con esta se llega mas lejos
+   
+    Y=newton_raphson(2,0.001,fx,dfx)
     salida_newton_raphson(Y)
