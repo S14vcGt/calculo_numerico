@@ -15,7 +15,6 @@ def newton_raphson(x0, tolera, fx, dfx):
 
     # convierte la lista a un arreglo.
     tabla = np.array(tabla)
-    n = len(tabla)
     
     #retorno una tupla con toda la informacion necesaria
     return (xi, tramo, tabla)
