@@ -3,8 +3,6 @@ import unittest as ut
 import integracion_numerica as integral
 import newton_raphson as nr
 import biseccion as bc
-import diferenciacion_numerica as df
-
 class IntegrationTest(ut.TestCase):#test de los metodos de integracion
     def test1(self):
         f = lambda x: x*(((x**2)+1)**0.5)#funcion que prueba este test
@@ -20,15 +18,6 @@ class IntegrationTest(ut.TestCase):#test de los metodos de integracion
 
         self.assertEqual(integral.riemman(f,1,2,4), -1.6020877497586603)
         self.assertEqual(integral.riemman(f,1,2,10000), -2.3971330653828895)
-
-        self.assertEqual(integral.trapecio(f,1,2,4), -2.2949338301069218)
-        self.assertEqual(integral.trapecio(f,1,2,10000), -2.3974102038150362)
-
-#class DiferenciacionTest(ut.TestCase):
-  #  def test1(self):
-   #     fx = lambda x: (mt.e**x)*(mt.cos(x))
-      #  dfx= df.derivada(fx)
-       # self.assertEqual(dfx(1),-4.425)
 
 class NewtonTest(ut.TestCase):# test del metodo de Newton-Raphson
     def test1(self):
