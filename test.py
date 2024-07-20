@@ -34,7 +34,7 @@ class BiseccionTest(ut.TestCase):#test del metodo de biseccion
 
         punto, error, iteraciones = bc.biseccion(f,(0,1),0.04,6)
         self.assertEqual(punto,0.90625)
-        self.asserEqual(error,0.034482758620689655)
+        self.assertEqual(error,0.034482758620689655)
         self.assertEqual(iteraciones,5)
         
 if __name__=="__main__":
